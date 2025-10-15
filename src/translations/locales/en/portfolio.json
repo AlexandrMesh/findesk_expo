@@ -1,0 +1,10 @@
+{
+  "enterPortfolioTitle": "Enter portfolio title",
+  "newPortfolio": "New portfolio",
+  "portfolioTitle": "Title",
+  "emptyPortfolioDescription": "The portfolio is empty. Add an asset.",
+  "removePortfolioTitle": "Remove portfolio",
+  "removePortfolioDescription": "The portfolio and its contents will be deleted",
+  "choosePortfolio": "Choose portfolio",
+  "createdAt": "Created at: {{created_at}}"
+}

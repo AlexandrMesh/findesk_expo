@@ -1,0 +1,10 @@
+{
+  "enterPortfolioTitle": "Введите название портфеля",
+  "newPortfolio": "Новый портфель",
+  "portfolioTitle": "Название",
+  "emptyPortfolioDescription": "Портфель пуст. Добавьте актив.",
+  "removePortfolioTitle": "Удалить портфель",
+  "removePortfolioDescription": "Портфель и его содержимое будут удалены",
+  "choosePortfolio": "Выберите портфель",
+  "createdAt": "Создан: {{created_at}}"
+}

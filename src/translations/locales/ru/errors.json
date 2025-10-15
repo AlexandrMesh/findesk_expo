@@ -1,0 +1,9 @@
+{
+  "hasNoValue": "Заполните это поле",
+  "isTooLong": "Должно быть символов не более: {{maxLength}}",
+  "isTooShort": "Должно быть символов не менее: {{minLength}}",
+  "portfolioExists": "Портфель уже существует",
+  "mustContainOnlyPositiveNumbers": "Допустимы только положительные цифры",
+  "mustBeLessThan": "Не может быть больше чем {{value}}",
+  "mustMoreThanZero": "Должно быть больше 0"
+}

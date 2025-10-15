@@ -1,0 +1,9 @@
+{
+  "hasNoValue": "Required field",
+  "isTooLong": "Must be no more than characters: {{maxLength}}",
+  "isTooShort": "Must be at least characters: {{minLength}}",
+  "portfolioExists": "Portfolio already exists",
+  "mustContainOnlyPositiveNumbers": "Only positive numbers are allowed",
+  "mustBeLessThan": "Can't be more than {{value}}",
+  "mustMoreThanZero": "Must be greater than 0"
+}

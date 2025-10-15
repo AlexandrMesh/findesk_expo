@@ -1,8 +1,11 @@
 {
   "expo": {
-    "name": "findesk",
+    "name": "FinDesk",
     "slug": "findesk",
-    "version": "1.0.0",
+    "version": "3.0.0",
+    "runtimeVersion": {
+      "policy": "appVersion"
+    },
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
     "scheme": "findesk",
@@ -25,8 +28,16 @@
       "output": "static",
       "favicon": "./assets/images/favicon.png"
     },
+    "updates": {
+      "url": "https://u.expo.dev/e424bca8-36c3-4c32-8501-87743a4e9c97",
+      "enabled": true,
+      "checkAutomatically": "ON_LOAD",
+      "fallbackToCacheTimeout": 0
+    },
     "plugins": [
-      "expo-router",
+      "./plugins/remove-adid-permission",
+      "./plugins/withAndroidNetworkSecurityConfig",
+      "expo-updates",
       [
         "expo-splash-screen",
         {
@@ -40,9 +51,12 @@
         }
       ]
     ],
-    "experiments": {
-      "typedRoutes": true,
-      "reactCompiler": true
-    }
+    "experiments": {},
+    "extra": {
+      "eas": {
+        "projectId": "e424bca8-36c3-4c32-8501-87743a4e9c97"
+      }
+    },
+    "owner": "meshok"
   }
 }
