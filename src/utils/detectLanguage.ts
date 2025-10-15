@@ -1,14 +1,14 @@
+import * as Localization from 'expo-localization';
 import { NativeModules } from 'react-native';
-import AsyncStorage from '@react-native-async-storage/async-storage';
-import { RU, EN } from '~constants/languages';
+import { EN, RU } from '~constants/languages';
 
-const detectLanguage = async () => {
-  const language = await AsyncStorage.getItem('dodesk_language');
-  if (language) {
-    return language;
-  }
-  const userLocale = (NativeModules?.I18nManager?.localeIdentifier || EN).split('_');
-  return userLocale[0] === RU ? RU : EN;
+const detectLanguage = () => {
+  const firstLocale = (Localization as any)?.getLocales?.()[0];
+  const fromGetLocales = firstLocale?.languageCode ? String(firstLocale.languageCode) : undefined;
+  const localeCode = (fromGetLocales || (Localization as any)?.locale || NativeModules?.I18nManager?.localeIdentifier || EN).toString();
+  const normalized = localeCode.replace(/-/g, '_').toLowerCase();
+  const languagePart = normalized.split('_')[0];
+  return languagePart === RU ? RU : EN;
 };
 
 export default detectLanguage;
