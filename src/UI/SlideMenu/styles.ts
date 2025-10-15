@@ -5,7 +5,10 @@ export default StyleSheet.create({
   topWrapper: {
     position: 'absolute',
     width: '100%',
-    height: '100%'
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 0
   },
   wrapper: {
     display: 'flex'
@@ -20,7 +23,9 @@ export default StyleSheet.create({
   animatedWrapper: {
     width: '100%',
     position: 'absolute',
-    bottom: 0
+    bottom: 0,
+    left: 0,
+    right: 0
   },
   content: {
     height: '100%',
@@ -29,7 +34,8 @@ export default StyleSheet.create({
     backgroundColor: colors.primary_dark,
     elevation: 6,
     borderTopRightRadius: 5,
-    borderTopLeftRadius: 5
+    borderTopLeftRadius: 5,
+    paddingBottom: 0
   },
   header: {
     display: 'flex',

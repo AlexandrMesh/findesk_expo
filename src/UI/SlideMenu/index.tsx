@@ -1,13 +1,17 @@
-import { useBackHandler, useKeyboard } from '@react-native-community/hooks';
 import React, { ReactNode, useCallback, useEffect, useLayoutEffect, useMemo, useState } from 'react';
+
 import { Animated, Dimensions, Pressable, Text, View } from 'react-native';
+
+import { useBackHandler, useKeyboard } from '@react-native-community/hooks';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
-import { getBannerHeight, subscribeBannerHeight } from '~UI/BannerAd/metrics';
-import Button from '~UI/Button';
+
 import CloseIcon from '~assets/close.svg';
 import { CLOSE_ICON } from '~constants/dimensions';
 import { SECONDARY } from '~constants/themes';
 import colors from '~styles/colors';
+import { getBannerHeight, subscribeBannerHeight } from '~UI/BannerAd/metrics';
+import Button from '~UI/Button';
+
 import styles from './styles';
 
 type SlideMenuProps = {
@@ -29,12 +33,12 @@ const SlideMenu = ({
   children,
   title,
   headerButtonTitle,
-  menuHeight = 336
+  menuHeight = 336,
 }: SlideMenuProps) => {
   const keyboard = useKeyboard();
   const insets = useSafeAreaInsets();
   const [bannerHeight, setBannerHeight] = useState<number>(getBannerHeight());
-  const windowHeight = Dimensions.get('window').height;
+  const windowHeight = Dimensions.get('window').height; // visible window height
   const [calculatedMenuHeight, setCalculatedMenuHeight] = useState(menuHeight);
   const [shouldDIsplay, setShouldDisplay] = useState(false);
   const [shouldDIsplayOverlay, setShouldDIsplayOverlay] = useState(false);
@@ -46,7 +50,7 @@ const SlideMenu = ({
       useNativeDriver: true,
       toValue: calculatedMenuHeight,
       restSpeedThreshold: 100,
-      restDisplacementThreshold: 40
+      restDisplacementThreshold: 40,
     }).start(() => {
       onClose();
     });
@@ -61,7 +65,7 @@ const SlideMenu = ({
   });
 
   useLayoutEffect(() => {
-    const safeHeight = windowHeight - insets.bottom - bannerHeight;
+    const safeHeight = windowHeight - insets.bottom - bannerHeight; // avoid overlapping system bar and banner ad
     if (keyboard.keyboardShown) {
       const target = safeHeight - keyboard.keyboardHeight;
       setCalculatedMenuHeight(target < menuHeight ? target : menuHeight);
@@ -92,11 +96,12 @@ const SlideMenu = ({
 
   useEffect(() => {
     if (shouldDIsplay) {
+      // Start from the actual measured height to avoid any bottom gap
       animatedHeight.setValue(calculatedMenuHeight);
       Animated.timing(animatedHeight, {
         useNativeDriver: true,
         toValue: 0,
-        duration: 220
+        duration: 220,
       }).start();
     }
   }, [shouldDIsplay, calculatedMenuHeight, animatedHeight]);
@@ -113,10 +118,10 @@ const SlideMenu = ({
                 opacity: animatedHeight.interpolate({
                   inputRange: [100, 200],
                   outputRange: [0.5, 0],
-                  extrapolate: 'clamp'
-                })
+                  extrapolate: 'clamp',
+                }),
               },
-              styles.overlay
+              styles.overlay,
             ]}
           >
             <Pressable style={styles.tappableOverlay} onPress={hideModal} />
@@ -126,9 +131,9 @@ const SlideMenu = ({
           style={[
             {
               height: calculatedMenuHeight,
-              transform: [{ translateY: animatedHeight }]
+              transform: [{ translateY: animatedHeight }],
             },
-            styles.animatedWrapper
+            styles.animatedWrapper,
           ]}
         >
           <View style={styles.wrapper}>
