@@ -16,8 +16,7 @@
     "update:preview": "eas update --platform android --channel preview",
     "update:production": "eas update --platform android --channel production",
     "update:list:preview": "eas update:list",
-    "update:list:production": "eas update:list",
-    "postinstall": "patch-package"
+    "update:list:production": "eas update:list"
   },
   "dependencies": {
     "@expo/vector-icons": "^15.0.2",
@@ -65,8 +64,7 @@
     "react-redux": "^9.2.0",
     "redux-persist": "^6.0.0",
     "reselect": "^5.1.1",
-    "uuid": "^13.0.0",
-    "yandex-mobile-ads": "7.16.0"
+    "uuid": "^13.0.0"
   },
   "devDependencies": {
     "@babel/core": "^7.28.4",
@@ -85,7 +83,6 @@
     "eslint-plugin-react": "^7.37.5",
     "eslint-plugin-react-hooks": "^7.0.0",
     "eslint-plugin-react-native": "^5.0.0",
-    "patch-package": "^8.0.1",
     "prettier": "^3.6.2",
     "typescript": "~5.9.2"
   },
